@@ -4,28 +4,24 @@ export default function TopButton({setQuery}) {
   const cities = [
     {
       id: 1,
-      title: "London",
+      title: "Moscow",
     },
     {
       id: 2,
-      title: "Sydney",
+      title: "Saint Petersburg",
     },
     {
       id: 3,
-      title: "Tokyo",
+      title: "Simferopol",
     },
     {
       id: 4,
-      title: "Toronto",
-    },
-    {
-      id: 5,
-      title: "Paris",
+      title: "Sevastopol",
     },
   ];
 
   return (
-    <div className="my-6 flex items-center justify-around">
+    <div className="my-1 flex items-center justify-around">
       {cities.map((city) => (
         <button
           key={city.id}

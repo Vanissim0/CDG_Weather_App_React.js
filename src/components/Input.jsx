@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 export default function Input({ setQuery, units, setUnits }) {
   const [city, setCity] = useState("");
 
+
   const handleUnitsChange = (e) => {
     const selectedUnit = e.currentTarget.name;
     if (units !== selectedUnit) setUnits(selectedUnit);
@@ -32,7 +33,7 @@ export default function Input({ setQuery, units, setUnits }) {
   };
 
   return (
-    <div className="flex flex-row justify-center my-6">
+    <div className="flex flex-row justify-center my-4">
       <div className="flex flex-row w-3/4 items-center justify-center space-x-4">
         <input
           value={city}

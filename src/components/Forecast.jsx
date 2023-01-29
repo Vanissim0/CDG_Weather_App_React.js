@@ -4,7 +4,7 @@ import { iconUrlFromCode } from '../services/weatherService'
 export default function Forecast({title, items}) {
   return (
     <div>
-        <div className='flex items-center justify-start mt-6'> 
+        <div className='flex items-center justify-start mt-3'> 
             <p className='text-white font-medium uppercase'>
                 {title}
             </p>

@@ -1,5 +1,4 @@
 import './App.css';
-import UilReact from '@iconscout/react-unicons/icons/uil-react'
 import TopButton from './components/TopButton';
 import Input from './components/Input';
 import TimeAndLocation from './components/TimeAndLocation';
@@ -7,8 +6,7 @@ import TemperatureAndDetails from './components/TemperatureAndDetails';
 import Forecast from './components/Forecast';
 // import getWeatherData from './services/weatherService';
 import getFormattedWeatherData from './services/weatherService';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -16,7 +14,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
-  const [query, setQuery] = useState({q: 'berlin'});
+  const [query, setQuery] = useState({q: 'sevastopol'});
   const [units, setUnits] = useState('metric');
   const [weather, setWeather] =useState(null);
 
@@ -68,7 +66,7 @@ function App() {
         </div>
       )}
   
-        <ToastContainer autoClose={5000} theme='colored' newestOnTop={true} />
+        <ToastContainer autoClose={2000} theme='colored' newestOnTop={true} />
 
     </div>
   );
