@@ -3,16 +3,12 @@ import { DateTime } from "luxon";
 const API_KEY = "1fa9ff4126d95b8db54f3897a208e91c";
 const BASE_URL = "https://api.openweathermap.org/data/2.5";
 
-
 const getWeatherData = (infoType, searchParams) => {
   const url = new URL(BASE_URL + "/" + infoType);
   url.search = new URLSearchParams({ ...searchParams, appid: API_KEY });
 
-  // console.log(url);
   return fetch(url).then((res) => res.json());
 };
-
-// export default getWeatherData;
 
 const formatCurrentWeather = (data) => {
   const {
@@ -52,7 +48,7 @@ const formatForecastWeather = (data) => {
     return {
       title: formatLocalTime(d.dt, timezone, "ccc"),
       temp: d.temp.day,
-      icon: d.weather[0].icon
+      icon: d.weather[0].icon,
     };
   });
 
@@ -60,7 +56,7 @@ const formatForecastWeather = (data) => {
     return {
       title: formatLocalTime(d.dt, timezone, "hh:mm a"),
       temp: d.temp,
-      icon: d.weather[0].icon
+      icon: d.weather[0].icon,
     };
   });
 

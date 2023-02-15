@@ -1,11 +1,35 @@
-import React, { useState } from "react";
-import { UilSearch, UilLocationPoint } from "@iconscout/react-unicons";
+import React, { useReducer, useState } from "react";
+import { UilSearch, UilLocationPoint, UilPlusSquare } from "@iconscout/react-unicons";
 import { toast } from "react-toastify";
-
 
 export default function Input({ setQuery, units, setUnits }) {
   const [city, setCity] = useState("");
+  const [cities, setCitites] = useState([]);
+  // const [state, dispatch] = useReducer(
+  //   (state, action) => {
+  //     switch (action.type) {
+  //       case "ADD_CITY":
+  //         return {
+  //           ...state,
+  //           cities: [...state.cities, state.city],
+  //           city: "",
+  //         };
+  //       case "ADD_FORECAST":;
+      
+          
+  //       default:
+  //         return state;
+  //     }
+  //   },
+  //   {
+  //     cities: [],
+  //     city: "",
+  //   }
+  // );
 
+  const onAddCity = () => {
+    setCitites([...cities, city]);
+  };
 
   const handleUnitsChange = (e) => {
     const selectedUnit = e.currentTarget.name;
@@ -33,39 +57,49 @@ export default function Input({ setQuery, units, setUnits }) {
   };
 
   return (
-    <div className="flex flex-row justify-center my-4">
-      <div className="flex flex-row w-3/4 items-center justify-center space-x-4">
+    <div className="my-4 flex flex-row justify-center">
+      <div className="flex w-3/4 flex-row items-center justify-center space-x-4">
+        {/* {state.cities.map((city) => ( */}
+        {cities.map((city) => (
+          <li key={city}>{city}</li>
+        ))}
         <input
           value={city}
           onChange={(e) => setCity(e.currentTarget.value)}
           type="text"
           placeholder="Search for city...."
-          className="text-xl font-light p-2 w-full shadow-xl focus:outline-none capitalize placeholder:lowercase"
+          className="w-full p-2 text-xl font-light capitalize shadow-xl placeholder:lowercase focus:outline-none"
         />
         <UilSearch
           size={25}
-          className="text-white cursor-pointer transition ease-out hover:scale-125"
+          className="cursor-pointer text-white transition ease-out hover:scale-125"
           onClick={handleSearchClick}
         />
         <UilLocationPoint
           size={25}
-          className="text-white cursor-pointer transition ease-out hover:scale-125"
+          className="cursor-pointer text-white transition ease-out hover:scale-125"
           onClick={handleLocationClick}
+        />
+        {/* <button onClick={() => dispatch({type:'ADD_CITY'})}>add</button> */}
+        {/* <button onClick={onAddCity}>add</button> */}
+        <UilPlusSquare 
+        className="cursor-pointer text-white transition ease-out hover:scale-125"
+          onClick={onAddCity}
         />
       </div>
 
-      <div className="flex flex-row w-1/4 items-center justify-center">
+      <div className="flex w-1/4 flex-row items-center justify-center">
         <button
           name="metric"
-          className="text-xl text-white font-light transition ease-out hover:scale-125"
+          className="text-xl font-light text-white transition ease-out hover:scale-125"
           onClick={handleUnitsChange}
         >
           °C
         </button>
-        <p className="text-xl text-white mx-1">|</p>
+        <p className="mx-1 text-xl text-white">|</p>
         <button
           name="imperial"
-          className="text-xl text-white font-light transition ease-out hover:scale-125"
+          className="text-xl font-light text-white transition ease-out hover:scale-125"
           onClick={handleUnitsChange}
         >
           °F
@@ -74,4 +108,3 @@ export default function Input({ setQuery, units, setUnits }) {
     </div>
   );
 }
-
