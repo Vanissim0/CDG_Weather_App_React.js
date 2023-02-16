@@ -1,5 +1,9 @@
 import React, { useReducer, useState } from "react";
-import { UilSearch, UilLocationPoint, UilPlusSquare } from "@iconscout/react-unicons";
+import {
+  UilSearch,
+  UilLocationPoint,
+  UilPlusSquare,
+} from "@iconscout/react-unicons";
 import { toast } from "react-toastify";
 
 export default function Input({ setQuery, units, setUnits }) {
@@ -15,8 +19,7 @@ export default function Input({ setQuery, units, setUnits }) {
   //           city: "",
   //         };
   //       case "ADD_FORECAST":;
-      
-          
+
   //       default:
   //         return state;
   //     }
@@ -26,6 +29,10 @@ export default function Input({ setQuery, units, setUnits }) {
   //     city: "",
   //   }
   // );
+
+  const handleChange = (event) => {
+    this.setState({ value: event.target.value });
+  };
 
   const onAddCity = () => {
     setCitites([...cities, city]);
@@ -38,6 +45,11 @@ export default function Input({ setQuery, units, setUnits }) {
 
   const handleSearchClick = () => {
     if (city !== "") setQuery({ q: city });
+  };
+
+  const handleSearchClickSelected = (event) => {
+    // if (city !== "") setQuery({ q: cities.city });
+    this.setState({ value: event.target.value });
   };
 
   const handleLocationClick = () => {
@@ -57,12 +69,29 @@ export default function Input({ setQuery, units, setUnits }) {
   };
 
   return (
-    <div className="my-4 flex flex-row justify-center">
+    <div className="flex flex-row justify-center">
       <div className="flex w-3/4 flex-row items-center justify-center space-x-4">
         {/* {state.cities.map((city) => ( */}
-        {cities.map((city) => (
-          <li key={city}>{city}</li>
-        ))}
+        <select
+          id="selectCity"
+          className="w-5 py-[7px] text-xl capitalize focus:outline-none cursor-pointer"
+          // onChange={handleSearchClickSelected}
+          onChange={(e) => setCity(e.currentTarget.value)}
+        >
+          <option value="" className="font-light" onChange={handleSearchClick}>
+            Select city
+          </option>
+          {cities.map((city) => (
+            <option
+              className="list-none font-light"
+              key={city}
+              name={city}
+              onChange={handleSearchClick}
+            >
+              {city}
+            </option>
+          ))}
+        </select>
         <input
           value={city}
           onChange={(e) => setCity(e.currentTarget.value)}
@@ -71,19 +100,20 @@ export default function Input({ setQuery, units, setUnits }) {
           className="w-full p-2 text-xl font-light capitalize shadow-xl placeholder:lowercase focus:outline-none"
         />
         <UilSearch
-          size={25}
+          size={40}
           className="cursor-pointer text-white transition ease-out hover:scale-125"
           onClick={handleSearchClick}
         />
         <UilLocationPoint
-          size={25}
+          size={40}
           className="cursor-pointer text-white transition ease-out hover:scale-125"
           onClick={handleLocationClick}
         />
         {/* <button onClick={() => dispatch({type:'ADD_CITY'})}>add</button> */}
         {/* <button onClick={onAddCity}>add</button> */}
-        <UilPlusSquare 
-        className="cursor-pointer text-white transition ease-out hover:scale-125"
+        <UilPlusSquare
+          size={40}
+          className="cursor-pointer text-white transition ease-out hover:scale-125"
           onClick={onAddCity}
         />
       </div>
