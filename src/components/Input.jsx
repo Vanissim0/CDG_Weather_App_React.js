@@ -9,6 +9,13 @@ import { toast } from "react-toastify";
 export default function Input({ setQuery, units, setUnits }) {
   const [city, setCity] = useState("");
   const [cities, setCitites] = useState([]);
+
+//   const handleFormSubmit = () => {
+//   const { city1, cities1 } = this.state;
+//   localStorage.setItem('city1')
+//   localStorage.setItem('cities1')
+// }
+
   // const [state, dispatch] = useReducer(
   //   (state, action) => {
   //     switch (action.type) {
@@ -30,9 +37,9 @@ export default function Input({ setQuery, units, setUnits }) {
   //   }
   // );
 
-  const handleChange = (event) => {
-    this.setState({ value: event.target.value });
-  };
+  // const handleChange = (event) => {
+  //   this.setState({ value: event.target.value });
+  // };
 
   const onAddCity = () => {
     setCitites([...cities, city]);
@@ -47,10 +54,10 @@ export default function Input({ setQuery, units, setUnits }) {
     if (city !== "") setQuery({ q: city });
   };
 
-  const handleSearchClickSelected = (event) => {
-    // if (city !== "") setQuery({ q: cities.city });
-    this.setState({ value: event.target.value });
-  };
+  // const handleSearchClickSelected = (event) => {
+  //   // if (city !== "") setQuery({ q: cities.city });
+  //   this.setState({ value: event.target.value });
+  // };
 
   const handleLocationClick = () => {
     if (navigator.geolocation) {
@@ -71,12 +78,11 @@ export default function Input({ setQuery, units, setUnits }) {
   return (
     <div className="flex flex-row justify-center">
       <div className="flex w-3/4 flex-row items-center justify-center space-x-4">
-        {/* {state.cities.map((city) => ( */}
         <select
           id="selectCity"
           className="w-5 py-[7px] text-xl capitalize focus:outline-none cursor-pointer"
-          // onChange={handleSearchClickSelected}
           onChange={(e) => setCity(e.currentTarget.value)}
+          onClick={handleSearchClick}
         >
           <option value="" className="font-light" onChange={handleSearchClick}>
             Select city
@@ -86,7 +92,8 @@ export default function Input({ setQuery, units, setUnits }) {
               className="list-none font-light"
               key={city}
               name={city}
-              onChange={handleSearchClick}
+              onChange={() => setQuery({ q: city })}
+              // onClick={handleSearchClick}
             >
               {city}
             </option>
@@ -109,8 +116,6 @@ export default function Input({ setQuery, units, setUnits }) {
           className="cursor-pointer text-white transition ease-out hover:scale-125"
           onClick={handleLocationClick}
         />
-        {/* <button onClick={() => dispatch({type:'ADD_CITY'})}>add</button> */}
-        {/* <button onClick={onAddCity}>add</button> */}
         <UilPlusSquare
           size={40}
           className="cursor-pointer text-white transition ease-out hover:scale-125"

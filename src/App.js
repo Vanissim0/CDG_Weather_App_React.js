@@ -40,10 +40,10 @@ function App() {
 
     return "from-yellow-700 to-orange-700";
   };
-
+  // from-cyan-500 to-blue-700
   return (
     <div
-      className={`mx-auto mt-4 h-fit max-w-screen-md bg-gradient-to-br from-cyan-500 to-blue-700 py-5 px-32 shadow-3xl
+      className={`mx-auto mt-4 h-fit max-w-screen-md bg-gradient-to-br from-green-400 to-blue-700 py-5 px-32 shadow-3xl
     shadow-gray-400 ${formatBackground()}`}
     >
       {/* <TopButton setQuery={setQuery} /> */}
@@ -61,7 +61,7 @@ function App() {
         </div>
       )}
 
-      <ToastContainer autoClose={4000} theme="colored" newestOnTop={true} position="bottom-right" />
+      {/* <ToastContainer autoClose={4000} theme="colored" newestOnTop={true} position="bottom-right" /> */}
     </div>
   );
 }
