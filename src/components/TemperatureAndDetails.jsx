@@ -24,8 +24,13 @@ export default function TemperatureAndDetails({
     timezone,
   },
 }) {
+  // const { showing } = this.state;
   return (
     <div>
+      {/* <div>
+                <button onClick={() => this.setState({ showing: !showing })}>toggle</button>
+                <div style={{ display: (showing ? 'block' : 'none') }}>This is visible</div>
+            </div>   */}
       <div
         className="
         flex items-center justify-center py-3 

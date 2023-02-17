@@ -108,17 +108,17 @@ export default function Input({ setQuery, units, setUnits }) {
         />
         <UilSearch
           size={40}
-          className="cursor-pointer text-white transition ease-out hover:scale-125"
+          className="cursor-pointer text-white transition ease-out hover:scale-125 hover:animate-ping"
           onClick={handleSearchClick}
         />
         <UilLocationPoint
           size={40}
-          className="cursor-pointer text-white transition ease-out hover:scale-125"
+          className="cursor-pointer text-white transition ease-out hover:scale-125 hover:animate-bounce"
           onClick={handleLocationClick}
         />
         <UilPlusSquare
           size={40}
-          className="cursor-pointer text-white transition ease-out hover:scale-125"
+          className="cursor-pointer text-white transition ease-out hover:scale-125 hover:animate-spin-slow"
           onClick={onAddCity}
         />
       </div>
