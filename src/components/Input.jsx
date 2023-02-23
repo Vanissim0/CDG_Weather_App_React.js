@@ -11,7 +11,14 @@ export default function Input({ setQuery, units, setUnits }) {
   const [cities, setCitites] = useState([]);
 
   const onAddCity = () => {
-    if (city !== "") setCitites([...cities, city]);
+    if (city !== "" && cities.includes(city) == 0) setCitites([...cities, city]);
+
+    if (cities.includes(city) ) { 
+      let deleteCity = '';
+      deleteCity = cities.indexOf(city) 
+      console.log(deleteCity)
+      (...cities.splice(deleteCity))
+    }
   };
 
   const handleUnitsChange = (e) => {
