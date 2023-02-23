@@ -5,6 +5,11 @@ import {
   UilWind,
   UilSun,
   UilSunset,
+  UilPlusSquare,
+  UilSetting,
+  UilWheelBarrow,
+  UilWheelchair,
+  UilWheelchairAlt,
 } from "@iconscout/react-unicons";
 import { iconUrlFromCode } from "../services/weatherService";
 import { formatLocalTime } from "../services/weatherService";
@@ -44,13 +49,18 @@ export default function TemperatureAndDetails({
         lfex-row flex items-center 
         justify-between py-3 text-white"
       >
-        <img
-          src={iconUrlFromCode(icon)}
-          alt=""
-          className="w-20"
-        />
+        <img src={iconUrlFromCode(icon)} alt="" className="w-20" />
         <p className="text-5xl">{`${temp.toFixed()}°`}</p>
         <div className="flex flex-col space-y-2">
+          <div
+            className="flex items-center justify-center text-sm
+                font-light"
+          >
+            <UilSetting
+              size={40}
+              className="mr-1 cursor-pointer text-white transition ease-out hover:animate-spin-slow active:text-green-400"
+            />
+          </div>
           <div
             className="flex items-center justify-center text-sm
                 font-light"
@@ -84,13 +94,13 @@ export default function TemperatureAndDetails({
       >
         <UilSun />
         <p className="font-light">
-          Rise: <span>{formatLocalTime(sunrise, timezone, 'hh:mm a')}</span>
+          Rise: <span>{formatLocalTime(sunrise, timezone, "hh:mm a")}</span>
         </p>
         <p className="font-light">|</p>
 
         <UilSunset />
         <p className="font-light">
-          Set: <span>{formatLocalTime(sunset, timezone, 'hh:mm a')}</span>
+          Set: <span>{formatLocalTime(sunset, timezone, "hh:mm a")}</span>
         </p>
         <p className="font-light">|</p>
 
