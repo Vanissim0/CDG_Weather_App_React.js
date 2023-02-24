@@ -29,13 +29,8 @@ export default function TemperatureAndDetails({
     timezone,
   },
 }) {
-  // const { showing } = this.state;
   return (
     <div>
-      {/* <div>
-                <button onClick={() => this.setState({ showing: !showing })}>toggle</button>
-                <div style={{ display: (showing ? 'block' : 'none') }}>This is visible</div>
-            </div>   */}
       <div
         className="
         flex items-center justify-center py-3 
@@ -57,7 +52,7 @@ export default function TemperatureAndDetails({
                 font-light"
           >
             <UilSetting
-              size={40}
+              size={30}
               className="mr-1 cursor-pointer text-white transition ease-out hover:animate-spin-slow active:text-green-400"
             />
           </div>
@@ -90,7 +85,7 @@ export default function TemperatureAndDetails({
 
       <div
         className="felx-row flex items-center justify-center 
-        space-x-2 py-3 text-sm text-white"
+        space-x-2 py-1 text-sm text-white"
       >
         <UilSun />
         <p className="font-light">

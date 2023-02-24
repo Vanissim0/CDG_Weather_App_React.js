@@ -1,10 +1,8 @@
 import "./App.css";
-// import TopButton from "./components/TopButton";
 import Input from "./components/Input";
 import TimeAndLocation from "./components/TimeAndLocation";
 import TemperatureAndDetails from "./components/TemperatureAndDetails";
 import Forecast from "./components/Forecast";
-// import getWeatherData from './services/weatherService';
 import getFormattedWeatherData from "./services/weatherService";
 import { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
@@ -22,9 +20,7 @@ function App() {
       toast.info("Fetching weather for " + message);
 
       await getFormattedWeatherData({ ...query, units }).then((data) => {
-        toast.success(
-          `Successfully fetched weather for ${data.name}.`
-        );
+        toast.success(`Successfully fetched weather for ${data.name}.`);
 
         setWeather(data);
       });
@@ -34,20 +30,17 @@ function App() {
   }, [query, units]);
 
   const formatBackground = () => {
-    if (!weather) return "from-cyan-500 to blue-700";
+    if (!weather) return "from-raspberry to blue-700";
     const threshold = units === "metric" ? 20 : 60;
-    if (weather.temp <= threshold) return "from-cyan-500 to-blue-700";
+    if (weather.temp <= threshold) return "from-raspberry to-blue-700";
 
-    return "from-yellow-700 to-orange-700";
+    return "from-raspberry to-orange-700";
   };
-  // from-cyan-500 to-blue-700
   return (
     <div
-      className={`mx-auto mt-4 h-fit max-w-screen-md bg-gradient-to-br from-green-400 to-blue-700 py-5 px-32 shadow-3xl
+      className={`mx-auto mt-4 h-fit max-w-screen-md bg-gradient-to-br from-raspberry to-blue-700 py-5 px-32 shadow-3xl
     shadow-gray-400 ${formatBackground()}`}
     >
-      {/* <TopButton setQuery={setQuery} /> */}
-
       <Input setQuery={setQuery} units={units} setUnits={setUnits} />
 
       {weather && (
@@ -60,8 +53,6 @@ function App() {
           <Forecast title="daily forecast" items={weather.daily} />
         </div>
       )}
-
-      {/* <ToastContainer autoClose={4000} theme="colored" newestOnTop={true} position="bottom-right" /> */}
     </div>
   );
 }

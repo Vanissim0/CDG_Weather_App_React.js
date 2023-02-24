@@ -14,10 +14,12 @@ export default function Input({ setQuery, units, setUnits }) {
     if (city !== "" && cities.includes(city) == 0) setCitites([...cities, city]);
 
     if (cities.includes(city) ) { 
-      let deleteCity = '';
-      deleteCity = cities.indexOf(city) 
-      console.log(deleteCity)
-      (...cities.splice(deleteCity))
+      let deletedCity = '';
+      deletedCity = cities.indexOf(city) 
+      // console.log(deletedCity)
+      (...cities.splice(deletedCity, 1))
+      // delete cities[deletedCity]
+      // console.log(cities)
     }
   };
 
