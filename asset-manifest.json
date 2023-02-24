@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/CDG_Weather_App_React.js/static/css/main.62978587.css",
-    "main.js": "/CDG_Weather_App_React.js/static/js/main.5afbe6da.js",
+    "main.js": "/CDG_Weather_App_React.js/static/js/main.5246d177.js",
     "index.html": "/CDG_Weather_App_React.js/index.html",
     "main.62978587.css.map": "/CDG_Weather_App_React.js/static/css/main.62978587.css.map",
-    "main.5afbe6da.js.map": "/CDG_Weather_App_React.js/static/js/main.5afbe6da.js.map"
+    "main.5246d177.js.map": "/CDG_Weather_App_React.js/static/js/main.5246d177.js.map"
   },
   "entrypoints": [
     "static/css/main.62978587.css",
-    "static/js/main.5afbe6da.js"
+    "static/js/main.5246d177.js"
   ]
 }
